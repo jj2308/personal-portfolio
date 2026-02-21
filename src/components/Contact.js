@@ -26,7 +26,7 @@ export default function Contact() {
       {/* Main Content */}
       <div className="max-w-7xl mx-auto w-full flex flex-col md:flex-row gap-12 items-center justify-center">
         {/* Left: Contact Info */}
-        <div className="flex-1 bg-[#18192a] rounded-3xl shadow-2xl p-10 flex flex-col items-center md:items-start mb-8 md:mb-0 min-w-[320px]">
+        <div className="flex-1 bg-[#18192a]/80 backdrop-blur rounded-3xl shadow-xl border border-white/10 p-10 flex flex-col items-center md:items-start mb-8 md:mb-0 min-w-[320px]">
           <motion.h3
             className="text-2xl font-bold mb-6 text-center md:text-left text-white"
             initial={{ opacity: 0, y: 40 }}
@@ -65,7 +65,7 @@ export default function Contact() {
           </div>
         </div>
         {/* Right: Contact Form */}
-        <div className="flex-1 bg-[#18192a] rounded-3xl shadow-2xl p-10 flex flex-col items-center md:items-start w-full max-w-lg min-w-[320px]">
+        <div className="flex-1 bg-[#18192a]/80 backdrop-blur rounded-3xl shadow-xl border border-white/10 p-10 flex flex-col items-center md:items-start w-full max-w-lg min-w-[320px]">
           <motion.h3
             className="text-2xl font-bold mb-6 text-center md:text-left text-white"
             initial={{ opacity: 0, y: 40 }}

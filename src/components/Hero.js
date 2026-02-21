@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-scroll";
+import { FaGithub, FaLinkedin, FaFileAlt } from "react-icons/fa";
 import profileImg from "../assets/profile.jpg";
 
 export default function Hero() {
@@ -17,14 +18,68 @@ export default function Hero() {
           >
             Hi, I'm <span className="text-purple-400">Joel Leah</span>
           </motion.h1>
+          <motion.div
+            className="text-sm md:text-base font-semibold text-white/90 mb-3"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.15, duration: 0.7 }}
+          >
+            Full-Stack Developer • Cybersecurity Enthusiast
+          </motion.div>
           <motion.p
-            className="text-base md:text-lg text-gray-200 mb-8 max-w-2xl text-center"
+            className="text-base md:text-lg text-gray-200 mb-7 max-w-2xl text-center leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
             I love building web apps with state-of-the-art technologies and experimenting with new tools. My passion is crafting user-friendly, functional interfaces that make a real impact for people.
           </motion.p>
+
+          <motion.div
+            className="flex flex-wrap items-center justify-center gap-2 mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.45, duration: 0.7 }}
+          >
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-white/15 border border-white/15 transition text-sm font-semibold"
+            >
+              <FaFileAlt /> Resume
+            </a>
+            <a
+              href="https://github.com/jj2308"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-white/15 border border-white/15 transition text-sm font-semibold"
+            >
+              <FaGithub /> GitHub
+            </a>
+            <a
+              href="https://www.linkedin.com/in/joel-jacob-ba7929346/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-white/15 border border-white/15 transition text-sm font-semibold"
+            >
+              <FaLinkedin /> LinkedIn
+            </a>
+          </motion.div>
+
+          <motion.div
+            className="flex flex-wrap items-center justify-center gap-2 mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.55, duration: 0.7 }}
+          >
+            <span className="px-3 py-1 rounded-full bg-black/20 border border-white/10 text-xs text-white/80">
+              Email: jj3854@srmist.edu.in
+            </span>
+            <span className="px-3 py-1 rounded-full bg-black/20 border border-white/10 text-xs text-white/80">
+              Open to: Internships • Full-time
+            </span>
+          </motion.div>
           <div className="w-full flex justify-center">
             <Link to="projects" smooth={true} duration={500} offset={-70}>
               <motion.button

@@ -6,7 +6,7 @@ import { Link } from "react-scroll";
 export default function About() {
   return (
     <section id="about" className="w-full py-24 px-4 min-h-[70vh] flex items-center justify-center bg-transparent">
-      <div className="max-w-7xl mx-auto w-full bg-gradient-to-br from-gray-900 via-purple-900 to-violet-600 text-white flex flex-col md:flex-row items-center justify-center rounded-3xl shadow-xl p-8 md:p-16 gap-4 md:-mt-12">
+      <div className="max-w-7xl mx-auto w-full bg-[#121325]/80 backdrop-blur border border-white/10 text-white flex flex-col md:flex-row items-center justify-center rounded-3xl shadow-2xl p-8 md:p-16 gap-4 md:-mt-12">
         {/* Left Side: Centered Text */}
         <div className="flex-1 flex flex-col items-center justify-center text-center md:text-left md:items-center md:justify-center">
           <motion.h2
@@ -34,7 +34,7 @@ export default function About() {
             transition={{ delay: 0.2, duration: 0.7 }}
             viewport={{ once: true }}
           >
-            With 2+ years of hands-on experience, I build fast, accessible, and robust web apps using the latest technologies. I love turning ideas into digital products that work beautifully everywhere.
+            With 5+ years of hands-on experience, I build fast, accessible, and robust web apps using the latest technologies. I love turning ideas into digital products that work beautifully everywhere.
           </motion.p>
           <motion.p
             className="mb-8 text-gray-300 max-w-xl"

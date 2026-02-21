@@ -6,6 +6,7 @@ import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import StarsBackground from "./components/StarsBackground";
+import ChatWidget from "./components/ChatWidget";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Projects />
       <Skills />
       <Contact />
+      <ChatWidget />
     </div>
   );
 }

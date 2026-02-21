@@ -31,7 +31,7 @@ export default function Skills() {
 
   return (
     <section id="skills" className="w-full py-24 px-4 bg-transparent">
-      <div className="max-w-7xl mx-auto w-full bg-gradient-to-br from-gray-900 via-purple-900 to-violet-600 text-white rounded-3xl shadow-xl p-8 md:p-16">
+      <div className="max-w-7xl mx-auto w-full bg-[#121325]/80 backdrop-blur border border-white/10 text-white rounded-3xl shadow-2xl p-8 md:p-16">
         <motion.h2
           className="text-4xl font-bold text-center mb-2"
           initial={{ opacity: 0, y: 40 }}
