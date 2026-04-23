@@ -19,15 +19,6 @@ function uid() {
 }
 
 export default function ChatWidget() {
-  const theme = useMemo(() => {
-    try {
-      return localStorage.getItem("portfolio_theme") || "bold";
-    } catch {
-      return "bold";
-    }
-  }, []);
-  const isMinimal = theme === "minimal";
-
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<UiMessage[]>(() => [
@@ -84,25 +75,17 @@ export default function ChatWidget() {
       {!open ? (
         <button
           onClick={() => setOpen(true)}
-          className={`text-white shadow-lg rounded-full w-14 h-14 flex items-center justify-center transition ${
-            isMinimal
-              ? "bg-sky-400/90 hover:bg-sky-300"
-              : "bg-purple-400 hover:bg-purple-500"
-          }`}
+          className="text-white shadow-lg rounded-full w-14 h-14 flex items-center justify-center transition bg-sky-400/90 hover:bg-sky-300"
           aria-label="Open chat"
         >
           <FaCommentDots size={22} />
         </button>
       ) : (
         <div
-          className={`w-[92vw] max-w-[380px] h-[70vh] max-h-[520px] text-white shadow-2xl rounded-2xl overflow-hidden border border-white/10 ${
-            isMinimal ? "theme-minimal-surface" : "bg-[#121325]"
-          }`}
+          className="w-[92vw] max-w-[380px] h-[70vh] max-h-[520px] text-white shadow-2xl rounded-2xl overflow-hidden border border-white/10 theme-minimal-surface"
         >
           <div
-            className={`flex items-center justify-between px-4 py-3 border-b border-white/10 ${
-              isMinimal ? "bg-white/5" : "bg-[#18192a]"
-            }`}
+            className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-white/5"
           >
             <div>
               <div className="font-semibold leading-tight">Ask about Joel</div>
@@ -132,9 +115,7 @@ export default function ChatWidget() {
                 <div
                   className={
                     m.role === "user"
-                      ? `max-w-[85%] rounded-2xl rounded-br-sm px-4 py-2 text-sm whitespace-pre-wrap break-words leading-relaxed ${
-                          isMinimal ? "bg-sky-400/25 border border-sky-300/20" : "bg-purple-500/80"
-                        }`
+                      ? "max-w-[85%] rounded-2xl rounded-br-sm px-4 py-2 text-sm whitespace-pre-wrap break-words leading-relaxed bg-sky-400/25 border border-sky-300/20"
                       : "max-w-[85%] rounded-2xl rounded-bl-sm bg-white/10 px-4 py-2 text-sm whitespace-pre-wrap break-words leading-relaxed"
                   }
                 >
@@ -181,9 +162,7 @@ export default function ChatWidget() {
           </div>
 
           <div
-            className={`px-4 py-3 border-t border-white/10 ${
-              isMinimal ? "bg-white/5" : "bg-[#18192a]"
-            }`}
+            className="px-4 py-3 border-t border-white/10 bg-white/5"
           >
             <form
               onSubmit={(e: React.FormEvent) => {
@@ -197,20 +176,12 @@ export default function ChatWidget() {
                 value={input}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setInput(e.target.value)}
                 placeholder="Ask a question..."
-                className={`flex-1 text-white placeholder:text-white/50 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 ${
-                  isMinimal
-                    ? "bg-white/10 border border-white/10 focus:ring-sky-300/40"
-                    : "bg-[#23243a] focus:ring-purple-400"
-                }`}
+                className="flex-1 text-white placeholder:text-white/50 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 bg-white/10 border border-white/10 focus:ring-sky-300/40"
               />
               <button
                 type="submit"
                 disabled={!canSend}
-                className={`disabled:opacity-60 text-white rounded-full px-4 py-2 text-sm font-semibold transition ${
-                  isMinimal
-                    ? "bg-sky-400/90 hover:bg-sky-300"
-                    : "bg-purple-400 hover:bg-purple-500"
-                }`}
+                className="disabled:opacity-60 text-white rounded-full px-4 py-2 text-sm font-semibold transition bg-sky-400/90 hover:bg-sky-300"
               >
                 Send
               </button>

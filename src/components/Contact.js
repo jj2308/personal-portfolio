@@ -3,12 +3,12 @@ import { FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { useForm, ValidationError } from '@formspree/react';
 
-export default function Contact({ theme }) {
+export default function Contact() {
   const [state, handleSubmit] = useForm("xnnzneob");
-  const isMinimal = theme === "minimal";
 
   return (
     <section id="contact" className="w-full py-24 px-4 bg-transparent flex flex-col items-center justify-center min-h-[60vh]">
+
       {/* Top Heading and Subtitle */}
       <div className="max-w-3xl mx-auto text-center mb-12">
 
@@ -19,8 +19,9 @@ export default function Contact({ theme }) {
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
         >
-          Get In <span className={isMinimal ? "text-white" : "text-purple-400"}>Touch</span>
+          Get In <span className="theme-minimal-accent">Touch</span>
         </motion.h2>
+
         <p className="text-gray-200 text-lg">
           Have a project in mind or want to collaborate? Feel free to reach out. I'm always open to discussing new opportunities.
         </p>
@@ -28,13 +29,7 @@ export default function Contact({ theme }) {
       {/* Main Content */}
       <div className="max-w-7xl mx-auto w-full flex flex-col md:flex-row gap-12 items-center justify-center">
         {/* Left: Contact Info */}
-        <div
-          className={`flex-1 rounded-3xl shadow-xl border border-white/10 p-10 flex flex-col items-center md:items-start mb-8 md:mb-0 min-w-[320px] ${
-            isMinimal
-              ? "bg-white/5 backdrop-blur"
-              : "bg-[#18192a]/80 backdrop-blur"
-          }`}
-        >
+        <div className="flex-1 rounded-3xl shadow-xl border border-white/10 p-10 flex flex-col items-center md:items-start mb-8 md:mb-0 min-w-[320px] bg-white/5 backdrop-blur">
 
           <motion.h3
             className="text-2xl font-bold mb-6 text-center md:text-left text-white"
@@ -46,45 +41,30 @@ export default function Contact({ theme }) {
             Contact Information
           </motion.h3>
           <div className="flex items-center gap-4 mb-6 w-full">
-            <span
-              className={`p-4 rounded-full ${
-                isMinimal
-                  ? "bg-white/10 text-white/80 border border-white/10"
-                  : "bg-[#23243a] text-purple-400"
-              }`}
-            >
+            <span className="p-4 rounded-full bg-white/10 text-white/80 border border-white/10">
               <FaEnvelope size={24} />
             </span>
+
             <div>
               <div className="font-semibold text-white">Email</div>
               <div className="text-gray-200 text-sm">jj3854@srmist.edu.in</div>
             </div>
           </div>
           <div className="flex items-center gap-4 mb-6 w-full">
-            <span
-              className={`p-4 rounded-full ${
-                isMinimal
-                  ? "bg-white/10 text-white/80 border border-white/10"
-                  : "bg-[#23243a] text-purple-400"
-              }`}
-            >
+            <span className="p-4 rounded-full bg-white/10 text-white/80 border border-white/10">
               <FaLinkedin size={24} />
             </span>
+
             <div>
               <div className="font-semibold text-white">LinkedIn</div>
               <a href="https://www.linkedin.com/in/joel-jacob-ba7929346/" target="_blank" rel="noopener noreferrer" className="text-gray-200 text-sm hover:underline">linkedin.com/in/joel-jacob-ba7929346</a>
             </div>
           </div>
           <div className="flex items-center gap-4 mb-6 w-full">
-            <span
-              className={`p-4 rounded-full ${
-                isMinimal
-                  ? "bg-white/10 text-white/80 border border-white/10"
-                  : "bg-[#23243a] text-purple-400"
-              }`}
-            >
+            <span className="p-4 rounded-full bg-white/10 text-white/80 border border-white/10">
               <FaGithub size={24} />
             </span>
+
             <div>
               <div className="font-semibold text-white">GitHub</div>
               <a href="https://github.com/jj2308" target="_blank" rel="noopener noreferrer" className="text-gray-200 text-sm hover:underline">github.com/jj2308</a>
@@ -92,13 +72,7 @@ export default function Contact({ theme }) {
           </div>
         </div>
         {/* Right: Contact Form */}
-        <div
-          className={`flex-1 rounded-3xl shadow-xl border border-white/10 p-10 flex flex-col items-center md:items-start w-full max-w-lg min-w-[320px] ${
-            isMinimal
-              ? "bg-white/5 backdrop-blur"
-              : "bg-[#18192a]/80 backdrop-blur"
-          }`}
-        >
+        <div className="flex-1 rounded-3xl shadow-xl border border-white/10 p-10 flex flex-col items-center md:items-start w-full max-w-lg min-w-[320px] bg-white/5 backdrop-blur">
 
           <motion.h3
             className="text-2xl font-bold mb-6 text-center md:text-left text-white"
@@ -121,14 +95,11 @@ export default function Contact({ theme }) {
                   id="name"
                   name="name"
                   type="text"
-                  className={`w-full rounded-lg text-white px-4 py-3 focus:outline-none focus:ring-2 ${
-                    isMinimal
-                      ? "bg-white/10 border border-white/10 focus:ring-white/30"
-                      : "bg-[#23243a] focus:ring-purple-400"
-                  }`}
+                  className="w-full rounded-lg text-white px-4 py-3 focus:outline-none focus:ring-2 bg-white/10 border border-white/10 focus:ring-sky-300/40"
                   placeholder="write your name..."
                   required
                 />
+
                 <ValidationError prefix="Name" field="name" errors={state.errors} />
               </div>
               <div>
@@ -137,14 +108,11 @@ export default function Contact({ theme }) {
                   id="email"
                   name="email"
                   type="email"
-                  className={`w-full rounded-lg text-white px-4 py-3 focus:outline-none focus:ring-2 ${
-                    isMinimal
-                      ? "bg-white/10 border border-white/10 focus:ring-white/30"
-                      : "bg-[#23243a] focus:ring-purple-400"
-                  }`}
+                  className="w-full rounded-lg text-white px-4 py-3 focus:outline-none focus:ring-2 bg-white/10 border border-white/10 focus:ring-sky-300/40"
                   placeholder="write your email"
                   required
                 />
+
                 <ValidationError prefix="Email" field="email" errors={state.errors} />
               </div>
               <div>
@@ -152,25 +120,18 @@ export default function Contact({ theme }) {
                 <textarea
                   id="message"
                   name="message"
-                  className={`w-full rounded-lg text-white px-4 py-3 focus:outline-none focus:ring-2 ${
-                    isMinimal
-                      ? "bg-white/10 border border-white/10 focus:ring-white/30"
-                      : "bg-[#23243a] focus:ring-purple-400"
-                  }`}
+                  className="w-full rounded-lg text-white px-4 py-3 focus:outline-none focus:ring-2 bg-white/10 border border-white/10 focus:ring-sky-300/40"
                   rows={4}
                   placeholder="Hello, I'd like to talk about..."
                   required
                 />
+
                 <ValidationError prefix="Message" field="message" errors={state.errors} />
               </div>
               <button
                 type="submit"
                 disabled={state.submitting}
-                className={`w-full text-white font-semibold py-3 rounded-full mt-4 transition flex items-center justify-center gap-2 disabled:opacity-60 ${
-                  isMinimal
-                    ? "bg-white/10 hover:bg-white/15 border border-white/15"
-                    : "bg-purple-400 hover:bg-purple-500"
-                }`}
+                className="w-full text-white font-semibold py-3 rounded-full mt-4 transition flex items-center justify-center gap-2 disabled:opacity-60 bg-white/10 hover:bg-white/15 border border-white/15"
               >
                 {state.submitting ? "Sending..." : <>Send Message <span className="text-lg">&#10148;</span></>}
               </button>

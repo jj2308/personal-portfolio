@@ -46,7 +46,7 @@ const FEATURED_PROJECTS = [
       "AI-powered analytics dashboard for digital marketing agencies featuring real-time KPIs, interactive charts, campaign filtering, and exportable reports in a modern responsive UI.",
     tech: ["React", "Node.js", "Firebase", "Maps API"],
     githubUrl: "https://github.com/jj2308/amb-dashboard",
-    liveUrl: "https://amb-dashboard.vercel.app/"
+    liveUrl: "https://amb-dashboard.vercel.app/",
   },
   {
     id: "view-all",
@@ -58,18 +58,13 @@ const FEATURED_PROJECTS = [
   },
 ];
 
-export default function Projects({ theme }) {
+export default function Projects() {
   const repos = FEATURED_PROJECTS;
-  const isMinimal = theme === "minimal";
 
   return (
     <section id="projects" className="w-full py-24 px-4 bg-transparent">
       <div
-        className={`max-w-7xl mx-auto w-full text-white rounded-3xl p-8 md:p-16 ${
-          isMinimal
-            ? "bg-[#0f1629]/80 backdrop-blur border border-white/10 shadow-2xl"
-            : "bg-[#121325]/80 backdrop-blur border border-white/10 shadow-2xl"
-        }`}
+        className="max-w-7xl mx-auto w-full text-white rounded-3xl p-8 md:p-16 bg-[#0f1629]/80 backdrop-blur border border-white/10 shadow-2xl"
       >
         <motion.h2
           className="text-4xl font-bold text-center mb-2"
@@ -88,22 +83,14 @@ export default function Projects({ theme }) {
             repos.map((repo) => (
               <motion.div
                 key={repo.id}
-                className={`rounded-2xl overflow-hidden flex flex-col transition ${
-                  isMinimal
-                    ? "bg-white/5 border border-white/10 shadow-xl hover:bg-white/7"
-                    : "bg-[#18192a] shadow-lg"
-                }`}
+                className="rounded-2xl overflow-hidden flex flex-col transition bg-white/5 border border-white/10 shadow-xl hover:bg-white/7"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7 }}
                 viewport={{ once: true }}
               >
                 <div
-                  className={`h-40 flex items-center justify-center ${
-                    isMinimal
-                      ? "bg-gradient-to-tr from-[#0b1223] to-[#122445]"
-                      : "bg-gradient-to-tr from-purple-700 to-violet-500"
-                  }`}
+                  className="h-40 flex items-center justify-center bg-gradient-to-tr from-[#0b1223] to-[#122445]"
                 >
                   <span className="text-5xl text-white/30 font-bold">
                     {repo.title.charAt(0).toUpperCase()}
@@ -117,11 +104,7 @@ export default function Projects({ theme }) {
                       repo.tech.map((t) => (
                         <span
                           key={`${repo.id}-${t}`}
-                          className={`px-3 py-1 rounded text-xs font-semibold ${
-                            isMinimal
-                              ? "bg-white/10 text-white/80 border border-white/10"
-                              : "bg-purple-700/30 text-purple-200"
-                          }`}
+                          className="px-3 py-1 rounded text-xs font-semibold bg-white/10 text-white/80 border border-white/10"
                         >
                           {t}
                         </span>
@@ -133,11 +116,7 @@ export default function Projects({ theme }) {
                         href={repo.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={
-                          isMinimal
-                            ? "text-white/70 hover:text-white"
-                            : "text-purple-400 hover:text-purple-300"
-                        }
+                        className="text-white/70 hover:text-white"
                       >
                         <FaExternalLinkAlt size={18} />
                       </a>
@@ -147,11 +126,7 @@ export default function Projects({ theme }) {
                         href={repo.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={
-                          isMinimal
-                            ? "text-white/70 hover:text-white"
-                            : "text-purple-400 hover:text-purple-300"
-                        }
+                        className="text-white/70 hover:text-white"
                       >
                         <FaGithub size={20} />
                       </a>

@@ -11,11 +11,8 @@ const navLinks = [
   { to: "contact", label: "Contact" },
 ];
 
-export default function Navbar({ theme, setTheme }) {
+export default function Navbar() {
   const [open, setOpen] = useState(false);
-
-  const nextTheme = theme === "minimal" ? "bold" : "minimal";
-  const isMinimal = theme === "minimal";
 
   useEffect(() => {
     if (!open) return;
@@ -29,9 +26,7 @@ export default function Navbar({ theme, setTheme }) {
 
   return (
     <nav
-      className={`fixed w-full z-50 backdrop-blur text-white shadow ${
-        isMinimal ? "bg-[#0b1223]/70" : "bg-gray-900/80"
-      }`}
+      className="fixed w-full z-50 backdrop-blur text-white shadow bg-[#0b1223]/70"
     >
       <div className="container mx-auto flex justify-between items-center py-4 px-6">
         <span className="font-bold text-xl">Joel Leah</span>
@@ -46,29 +41,14 @@ export default function Navbar({ theme, setTheme }) {
                 smooth={true}
                 duration={500}
                 offset={-70}
-                className={`cursor-pointer transition ${
-                  isMinimal ? "hover:text-sky-300" : "hover:text-purple-400"
-                }`}
-                activeClass={isMinimal ? "text-sky-300" : "text-purple-400"}
+                className="cursor-pointer transition hover:text-sky-300"
+                activeClass="text-sky-300"
                 spy={true}
               >
                 {link.label}
               </Link>
             ))}
           </div>
-
-          <button
-            type="button"
-            onClick={() => setTheme(nextTheme)}
-            className={`inline-flex items-center gap-2 px-3 py-2 rounded-full border transition text-xs font-semibold ${
-              isMinimal
-                ? "bg-white/5 hover:bg-white/10 border-white/10 text-white/90"
-                : "bg-white/10 hover:bg-white/15 border-white/10"
-            }`}
-            aria-label="Toggle theme"
-          >
-            {theme === "minimal" ? "Minimal" : "Bold"}
-          </button>
         </div>
 
         {/* Mobile */}
@@ -105,17 +85,6 @@ export default function Navbar({ theme, setTheme }) {
               transition={{ type: "spring", stiffness: 380, damping: 30 }}
             >
               <div className="p-2">
-                <button
-                  type="button"
-                  onClick={() => {
-                    setTheme(nextTheme);
-                    setOpen(false);
-                  }}
-                  className="w-full px-4 py-3 rounded-xl text-left text-white/90 hover:text-white hover:bg-white/10 transition text-sm font-semibold"
-                  aria-label="Toggle theme"
-                >
-                  Theme: {theme === "minimal" ? "Minimal" : "Bold"}
-                </button>
                 {navLinks.map((link) => (
                   <Link
                     key={link.to}
@@ -124,7 +93,7 @@ export default function Navbar({ theme, setTheme }) {
                     duration={500}
                     offset={-70}
                     className="block px-4 py-3 rounded-xl cursor-pointer text-white/90 hover:text-white hover:bg-white/10 transition"
-                    activeClass="text-purple-300"
+                    activeClass="text-sky-300"
                     spy={true}
                     onClick={() => setOpen(false)}
                   >
