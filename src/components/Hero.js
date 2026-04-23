@@ -4,10 +4,18 @@ import { Link } from "react-scroll";
 import { FaGithub, FaLinkedin, FaFileAlt } from "react-icons/fa";
 import profileImg from "../assets/profile.jpg";
 
-export default function Hero() {
+export default function Hero({ theme }) {
+  const isMinimal = theme === "minimal";
+
   return (
     <section id="hero" className="w-full pt-40 md:pt-56 pb-12 px-4 min-h-[80vh] flex items-center justify-center bg-transparent">
-      <div className="max-w-7xl mx-auto w-full bg-gradient-to-br from-gray-900 via-purple-900 to-violet-600 text-white flex flex-col md:flex-row items-center justify-center rounded-3xl shadow-xl p-8 md:p-16 md:-mt-24">
+      <div
+        className={`max-w-7xl mx-auto w-full text-white flex flex-col md:flex-row items-center justify-center rounded-3xl p-8 md:p-16 md:-mt-24 ${
+          isMinimal
+            ? "theme-minimal-surface backdrop-blur border border-white/10 shadow-2xl"
+            : "bg-gradient-to-br from-gray-900 via-purple-900 to-violet-600 shadow-xl"
+        }`}
+      >
         {/* Left Side */}
         <div className="flex-1 flex flex-col items-center justify-center text-center">
           <motion.h1
@@ -16,7 +24,8 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Hi, I'm <span className="text-purple-400">Joel Leah</span>
+            Hi, I'm{" "}
+            <span className={isMinimal ? "theme-minimal-accent" : "text-purple-400"}>Joel Leah</span>
           </motion.h1>
           <motion.div
             className="text-sm md:text-base font-semibold text-white/90 mb-3"
@@ -83,7 +92,11 @@ export default function Hero() {
           <div className="w-full flex justify-center">
             <Link to="projects" smooth={true} duration={500} offset={-70}>
               <motion.button
-                className="bg-purple-400 hover:bg-purple-500 text-white font-semibold px-8 py-3 rounded-full shadow-lg transition"
+                className={`text-white font-semibold px-8 py-3 rounded-full shadow-lg transition ${
+                  isMinimal
+                    ? "bg-white/10 hover:bg-white/15 border border-white/15"
+                    : "bg-purple-400 hover:bg-purple-500"
+                }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
               >
@@ -115,7 +128,9 @@ export default function Hero() {
           <motion.img
             src={profileImg}
             alt="Joel Leah"
-            className="w-64 h-64 md:w-80 md:h-80 object-cover rounded-3xl shadow-xl border-4 border-white"
+            className={`w-64 h-64 md:w-80 md:h-80 object-cover rounded-3xl shadow-xl ${
+              isMinimal ? "border border-white/15" : "border-4 border-white"
+            }`}
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
@@ -124,4 +139,4 @@ export default function Hero() {
       </div>
     </section>
   );
-} 
+}

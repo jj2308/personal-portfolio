@@ -3,10 +3,18 @@ import { motion } from "framer-motion";
 import { FaCode, FaUserCircle, FaBriefcase } from "react-icons/fa";
 import { Link } from "react-scroll";
 
-export default function About() {
+export default function About({ theme }) {
+  const isMinimal = theme === "minimal";
+
   return (
     <section id="about" className="w-full py-24 px-4 min-h-[70vh] flex items-center justify-center bg-transparent">
-      <div className="max-w-7xl mx-auto w-full bg-[#121325]/80 backdrop-blur border border-white/10 text-white flex flex-col md:flex-row items-center justify-center rounded-3xl shadow-2xl p-8 md:p-16 gap-4 md:-mt-12">
+      <div
+        className={`max-w-7xl mx-auto w-full text-white flex flex-col md:flex-row items-center justify-center rounded-3xl shadow-2xl p-8 md:p-16 gap-4 md:-mt-12 ${
+          isMinimal
+            ? "bg-[#0f1629]/80 backdrop-blur border border-white/10"
+            : "bg-[#121325]/80 backdrop-blur border border-white/10"
+        }`}
+      >
         {/* Left Side: Centered Text */}
         <div className="flex-1 flex flex-col items-center justify-center text-center md:text-left md:items-center md:justify-center">
           <motion.h2
@@ -16,7 +24,7 @@ export default function About() {
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
           >
-            About <span className="text-purple-400">Me</span>
+            About <span className={isMinimal ? "text-white" : "text-purple-400"}>Me</span>
           </motion.h2>
           <motion.h3
             className="text-2xl font-semibold mb-4"
@@ -47,7 +55,11 @@ export default function About() {
           </motion.p>
           <Link to="contact" smooth={true} duration={500} offset={-70}>
             <motion.button
-              className="bg-purple-400 hover:bg-purple-500 text-white font-semibold px-8 py-3 rounded-full shadow-lg transition mb-4"
+              className={`text-white font-semibold px-8 py-3 rounded-full shadow-lg transition mb-4 ${
+                isMinimal
+                  ? "bg-white/10 hover:bg-white/15 border border-white/15"
+                  : "bg-purple-400 hover:bg-purple-500"
+              }`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
             >
@@ -58,13 +70,23 @@ export default function About() {
         {/* Right Side: Feature Cards */}
         <div className="flex-1 flex flex-col gap-6 w-full max-w-md md:items-start items-center">
           <motion.div
-            className="bg-[#18192a] rounded-xl p-6 flex items-center gap-4 shadow-lg w-full"
+            className={`rounded-xl p-6 flex items-center gap-4 w-full ${
+              isMinimal
+                ? "bg-white/5 border border-white/10 shadow-xl"
+                : "bg-[#18192a] shadow-lg"
+            }`}
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
           >
-            <span className="bg-[#23243a] p-4 rounded-full text-purple-400">
+            <span
+              className={`p-4 rounded-full ${
+                isMinimal
+                  ? "bg-white/10 text-white/80 border border-white/10"
+                  : "bg-[#23243a] text-purple-400"
+              }`}
+            >
               <FaCode size={28} />
             </span>
             <div>
@@ -73,13 +95,23 @@ export default function About() {
             </div>
           </motion.div>
           <motion.div
-            className="bg-[#18192a] rounded-xl p-6 flex items-center gap-4 shadow-lg w-full"
+            className={`rounded-xl p-6 flex items-center gap-4 w-full ${
+              isMinimal
+                ? "bg-white/5 border border-white/10 shadow-xl"
+                : "bg-[#18192a] shadow-lg"
+            }`}
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.7 }}
             viewport={{ once: true }}
           >
-            <span className="bg-[#23243a] p-4 rounded-full text-purple-400">
+            <span
+              className={`p-4 rounded-full ${
+                isMinimal
+                  ? "bg-white/10 text-white/80 border border-white/10"
+                  : "bg-[#23243a] text-purple-400"
+              }`}
+            >
               <FaUserCircle size={28} />
             </span>
             <div>
@@ -88,13 +120,23 @@ export default function About() {
             </div>
           </motion.div>
           <motion.div
-            className="bg-[#18192a] rounded-xl p-6 flex items-center gap-4 shadow-lg w-full"
+            className={`rounded-xl p-6 flex items-center gap-4 w-full ${
+              isMinimal
+                ? "bg-white/5 border border-white/10 shadow-xl"
+                : "bg-[#18192a] shadow-lg"
+            }`}
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.7 }}
             viewport={{ once: true }}
           >
-            <span className="bg-[#23243a] p-4 rounded-full text-purple-400">
+            <span
+              className={`p-4 rounded-full ${
+                isMinimal
+                  ? "bg-white/10 text-white/80 border border-white/10"
+                  : "bg-[#23243a] text-purple-400"
+              }`}
+            >
               <FaBriefcase size={28} />
             </span>
             <div>
@@ -106,4 +148,4 @@ export default function About() {
       </div>
     </section>
   );
-} 
+}
